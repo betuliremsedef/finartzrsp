@@ -2,8 +2,11 @@ package com.finartz.logic;
 
 import org.springframework.stereotype.Service;
 
+import com.finartz.WEB.model.GameRequest;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import static com.finartz.WEB.model.MapPopulator.build;
 
@@ -12,6 +15,23 @@ import static com.finartz.WEB.model.MapPopulator.build;
  */
 @Service
 public class GameLogic {
+	
+	
+	public String getPlayerMove(){
+		
+		GameRequest request=new GameRequest();
+		String playerMove="";
+		String[] moves={"paper","scissors","rock"};
+		
+		Random rand=new Random();
+		int playerIndex=rand.nextInt(3);
+		
+		playerMove=moves[playerIndex];
+		
+		return playerMove;
+	}
+	
+	
 
     private Map<String, Boolean> firstWins;
 
